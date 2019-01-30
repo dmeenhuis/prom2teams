@@ -20,14 +20,17 @@
             "name": "Alarm",
             "value": "{{ msg_text.name }}"
         },{% endif %}{% if msg_text.instance %}{
-            "name": "In host",
-            "value": "{{ msg_text.instance }}"
+            "name": "Source",
+            "value": "[Prometheus]({{ msg_text.instance }})"
         },{% endif %}{% if msg_text.severity %}{
             "name": "Severity",
             "value": "{{ msg_text.severity }}"
-        },{% endif %}{% if msg_text.description %}{
+        },{% endif %}{% if msg_text.summary %}{
             "name": "Description",
-            "value": "{{ msg_text.description }}"
+            "value": "{{ msg_text.summary }}"
+        },{% endif %}{% if msg_text.externalURL %}{
+            "name": "Alertmanager URL",
+            "value": "[{{ msg_text.externalURL }}]({{ msg_text.externalURL }})"
         },{% endif %}{
             "name": "Status",
             "value": "{{ msg_text.status }}"

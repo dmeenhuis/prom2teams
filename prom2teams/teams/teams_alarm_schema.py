@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, INCLUDE
 
 
 class TeamsAlarmSchema(Schema):
@@ -8,13 +8,18 @@ class TeamsAlarmSchema(Schema):
     instance = fields.Str()
     description = fields.Str()
     name = fields.Str()
+    externalURL = fields.Str()
+
+    class Meta:
+        unknown = INCLUDE
 
 
 class TeamsAlarm:
-    def __init__(self, name, status, severity, summary, instance, description):
+    def __init__(self, name, status, severity, summary, instance, description, externalURL):
         self.name = name
         self.status = status
         self.severity = severity
         self.summary = summary
         self.instance = instance
         self.description = description
+        self.externalURL = externalURL

@@ -108,3 +108,5 @@ ENV/
 
 # pypi config file
 .pypirc
+
+.vscode/
